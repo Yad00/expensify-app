@@ -8,7 +8,7 @@ export const Header = ({ startLogout }) => {
     return (
         <header>
             <h1>Expensify</h1>
-            <NavLink to="/" className={({ isActive }) => "nav-link" + (isActive ? " activated" : "")}>Dashboard</NavLink>
+            <NavLink to="/dashboard" className={({ isActive }) => "nav-link" + (isActive ? " activated" : "")}>Dashboard</NavLink>
             <NavLink to="/create" className={({ isActive }) => "nav-link" + (isActive ? " activated" : "")}>Create Expense</NavLink>
             <button onClick={() => {
                 startLogout();
@@ -22,5 +22,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(undefined, mapDispatchToProps)(Header);
-
-// <NavLink to="/help" className={({ isActive }) => "nav-link" + (isActive ? " activated" : "")}>Help</NavLink>

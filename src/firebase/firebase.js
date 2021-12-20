@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import {getDatabase, ref, set, remove, update, get, onValue, onChildRemoved, onChildChanged, onChildAdded, push} from 'firebase/database'
+import {getDatabase, ref, set, remove, update, get, onValue, onChildRemoved, onChildChanged, onChildAdded, push} from 'firebase/database';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 const firebaseApp = initializeApp({
   apiKey: process.env.FIREBASE_API_KEY,
@@ -12,6 +13,8 @@ const firebaseApp = initializeApp({
 });
 
 const db = getDatabase(firebaseApp);
+const googleAuthProvider = new GoogleAuthProvider();
+const auth = getAuth();
 
 export {
   db,
@@ -24,7 +27,10 @@ export {
   onChildRemoved,
   onChildChanged,
   onChildAdded,
-  push
+  push,
+  googleAuthProvider,
+  auth,
+  signInWithPopup
 };
 
 // // child removed

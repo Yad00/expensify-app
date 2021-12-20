@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ExpenseForm from "./ExpenseForm";
 import { startAddExpense } from '../actions/expenses';
 

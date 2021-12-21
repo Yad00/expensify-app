@@ -1,19 +1,23 @@
 import React from "react";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 
 export const Header = ({ startLogout }) => {
     const navigate = useNavigate();
     return (
-        <header>
-            <h1>Expensify</h1>
-            <NavLink to="/dashboard" className={({ isActive }) => "nav-link" + (isActive ? " activated" : "")}>Dashboard</NavLink>
-            <NavLink to="/create" className={({ isActive }) => "nav-link" + (isActive ? " activated" : "")}>Create Expense</NavLink>
-            <button onClick={() => {
-                startLogout();
-                navigate('/');
-            }}>Logout</button>
+        <header className="header">
+            <div className="content-container">
+                <div className="header__content">
+                    <Link className="header__title" to="/dashboard">
+                        <h1>Expensify</h1>
+                    </Link>
+                    <button className="button button--link" onClick={() => {
+                        startLogout();
+                        navigate('/');
+                    }}>Logout</button>
+                </div>
+            </div>
         </header>
 )};
 
